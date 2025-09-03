@@ -4,404 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDEA Software de Auditoría - La Guía Más Completa del Mundo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: rgba(0,0,0,0.9);
-            backdrop-filter: blur(20px);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 3px solid #ff6b6b;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-        }
-
-        nav a:hover {
-            background: linear-gradient(45deg, #ff6b6b, #ffa500);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-        }
-
-        main {
-            margin-top: 120px;
-            min-height: 100vh;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(20px);
-            margin: 2rem 0;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(20px);
-            margin: 2rem 0;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-            border-bottom: 3px solid #ff6b6b;
-            padding-bottom: 0.5rem;
-        }
-
-        .section h3 {
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem 0;
-            color: #4a5568;
-        }
-
-        .section h4 {
-            font-size: 1.4rem;
-            margin: 1.5rem 0 1rem 0;
-            color: #667eea;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(240, 147, 251, 0.4);
-        }
-
-        .feature-card h4 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .code-block {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            border-left: 4px solid #ff6b6b;
-        }
-
-        .step-list {
-            counter-reset: step-counter;
-        }
-
-        .step {
-            counter-increment: step-counter;
-            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-            margin: 1rem 0;
-            padding: 1.5rem;
-            border-radius: 10px;
-            position: relative;
-            padding-left: 4rem;
-            box-shadow: 0 5px 15px rgba(132, 250, 176, 0.3);
-        }
-
-        .step::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #667eea;
-            color: white;
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .table-container {
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        td {
-            padding: 1rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        tr:nth-child(even) {
-            background: #f7fafc;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            border-left: 5px solid #ff6b6b;
-            box-shadow: 0 10px 30px rgba(252, 182, 159, 0.3);
-        }
-
-        .warning-box {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-            border-left: 5px solid #e53e3e;
-        }
-
-        .tip-box {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-            border-left: 5px solid #38b2ac;
-        }
-
-        .image-placeholder {
-            background: linear-gradient(135deg, #e0e7ff 0%, #fde8f0 100%);
-            height: 250px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #667eea;
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            border: 2px dashed #667eea;
-        }
-
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-element {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            width: 60px;
-            height: 60px;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            top: 60%;
-            right: 10%;
-            width: 80px;
-            height: 80px;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            bottom: 20%;
-            left: 20%;
-            width: 40px;
-            height: 40px;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ffa500);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-        }
-
-        .toc {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
-
-        .toc h3 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .toc ul {
-            list-style: none;
-        }
-
-        .toc li {
-            margin: 0.5rem 0;
-        }
-
-        .toc a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 0.5rem;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .toc a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section {
-                padding: 2rem 1rem;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="floating-elements">
@@ -420,7 +23,7 @@
                         <li><a href="#caracteristicas">Características</a></li>
                         <li><a href="#instalacion">Instalación</a></li>
                         <li><a href="#guia-uso">Guía de Uso</a></li>
-                        <li><a href="#funciones">Funciones</a></li>
+                        <li><a href="#funciones-avanzadas">Funciones Avanzadas</a></li>
                         <li><a href="#casos-uso">Casos de Uso</a></li>
                         <li><a href="#recursos">Recursos</a></li>
                     </ul>
@@ -1264,3 +867,185 @@
                         <div class="code-block">
                             TIPOS DE JOIN DISPONIBLES:
                             
+                            • INNER JOIN (Coincidentes): Solo registros que existen en ambos archivos.
+                            • LEFT JOIN (Todos los del primario): Todos los registros del archivo principal y los coincidentes del secundario.
+                            • RIGHT JOIN (Todos los del secundario): Todos los del secundario y los coincidentes del primario.
+                            • FULL OUTER JOIN (Todos los registros): Todos los registros de ambos archivos, coincidan o no.
+                            
+                            CASO DE USO: Cruce de base de empleados con base de proveedores para detectar conflictos de interés.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="funciones-avanzadas" class="section">
+                <h2>🚀 Funciones Avanzadas y Automatización</h2>
+
+                <h3>🤖 IDEAScript: Automatización de Tareas</h3>
+                <p>IDEAScript es el lenguaje de macros de IDEA, basado en Visual Basic. Permite automatizar tareas repetitivas y crear análisis personalizados complejos.</p>
+                <div class="code-block">
+                    ' EJEMPLO DE IDEASCRIPT PARA IMPORTAR Y ANALIZAR UN ARCHIVO
+                    
+                    Sub Main
+                        Dim db As database
+                        Set db = Client.OpenDatabase("Ventas.IMD")
+                        
+                        ' Tarea 1: Detección de duplicados por número de factura
+                        Task = db.DuplicateKeyDetection
+                        Task.FileToScan = "Ventas"
+                        Task.OutputFile = "Facturas_Duplicadas"
+                        Task.Key = "NUM_FACTURA"
+                        Task.PerformTask
+                        
+                        ' Tarea 2: Estratificación de montos
+                        Task = db.Stratification
+                        Task.FileToScan = "Ventas"
+                        Task.OutputFile = "Estratificacion_Ventas"
+                        Task.FieldToStratify = "MONTO"
+                        Task.PerformTask
+                        
+                        MsgBox "Análisis completado."
+                    End Sub
+                </div>
+
+                <h3>🧠 SmartAnalyzer: Auditoría Inteligente</h3>
+                <p>SmartAnalyzer es una colección de rutinas de auditoría pre-programadas que cubren áreas como Cuentas por Pagar, Cuentas por Cobrar, Inventario y Libro Mayor.</p>
+                <div class="tip-box">
+                    <h4>💡 Ventajas de SmartAnalyzer</h4>
+                    <ul>
+                        <li><strong>Consistencia:</strong> Asegura que todos los miembros del equipo sigan los mismos procedimientos.</li>
+                        <li><strong>Eficiencia:</strong> Ejecuta docenas of pruebas de auditoría con unos pocos clics.</li>
+                        <li><strong>Documentación:</strong> Genera automáticamente papeles de trabajo y reportes de hallazgos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="casos-uso" class="section">
+                <h2>📈 Casos de Uso Prácticos por Área</h2>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>💰 Auditoría Financiera</h4>
+                        <p>Análisis de diario general, pruebas de corte, conciliaciones bancarias automáticas, análisis de depreciación de activos fijos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🕵️ Detección de Fraude</h4>
+                        <p>Identificación de proveedores fantasmas, detección de pagos duplicados, análisis de gastos de empleados fuera de política, búsqueda de transacciones en fines de semana.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🏢 Auditoría Interna</h4>
+                        <p>Revisión de controles de acceso, análisis de segregación de funciones (SoD), monitoreo continuo de transacciones, evaluación de eficiencia operativa.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚖️ Cumplimiento y Regulación</h4>
+                        <p>Pruebas para SOX, AML (Anti-Money Laundering), GDPR. Verificación de cumplimiento de políticas internas y regulaciones externas.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mejores-practicas" class="section">
+                <h2>🏆 Mejores Prácticas en el Uso de IDEA</h2>
+                <div class="step-list">
+                    <div class="step">
+                        <h4>Planificación del Proyecto</h4>
+                        <p>Define claramente los objetivos de tu análisis antes de empezar. ¿Qué preguntas buscas responder?</p>
+                    </div>
+                    <div class="step">
+                        <h4>Organización de Archivos</h4>
+                        <p>Usa una estructura de carpetas lógica para cada proyecto. Mantén separados los datos originales, los análisis y los reportes.</p>
+                    </div>
+                    <div class="step">
+                        <h4>Documentación Rigurosa</h4>
+                        <p>Utiliza el historial de IDEA y añade comentarios a tus análisis. Esto es crucial para la revisión por pares y para auditorías futuras.</p>
+                    </div>
+                    <div class="step">
+                        <h4>Validación de Datos</h4>
+                        <p>Nunca asumas que los datos son correctos. Realiza siempre una validación inicial para asegurar la integridad de la fuente.</p>
+                    </div>
+                    <div class="step">
+                        <h4>Uso de Scripts</h4>
+                        <p>Para tareas repetitivas, invierte tiempo en crear un IDEAScript. Ahorrarás horas a largo plazo y reducirás errores humanos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="troubleshooting" class="section">
+                <h2>🛠️ Solución de Problemas Comunes</h2>
+                <div class="warning-box">
+                    <h4>Error: "Tipo de dato incorrecto" en la importación</h4>
+                    <p><strong>Causa:</strong> Una columna definida como numérica o fecha contiene caracteres de texto.
+                    <br><strong>Solución:</strong> Importa la columna como "Carácter", luego usa la función `@IsNumeric()` o `@IsDate()` para limpiar los datos y conviértela al tipo correcto.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>Error: "Memoria insuficiente para la operación"</h4>
+                    <p><strong>Causa:</strong> Estás realizando un join muy complejo o un análisis en un archivo extremadamente grande con poca RAM.
+                    <br><strong>Solución:</strong> Cierra otras aplicaciones. Aumenta la memoria asignada a IDEA en las opciones. Si persiste, filtra los datos a un subconjunto más pequeño antes de realizar el análisis.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>Problema: El join de archivos no devuelve resultados esperados</h4>
+                    <p><strong>Causa:</strong> Los campos clave no coinciden exactamente (ej: "00123" vs "123", o espacios extra).
+                    <br><strong>Solución:</strong> Crea campos virtuales en ambos archivos usando funciones como `@Trim()` para eliminar espacios y `@Pad()` para estandarizar la longitud antes de hacer el join.</p>
+                </div>
+            </section>
+
+            <section id="integraciones" class="section">
+                <h2>🔗 Integraciones y Ecosistema</h2>
+                <p>IDEA no es una herramienta aislada. Se integra con otras soluciones para maximizar su poder.</p>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Herramienta</th>
+                            <th>Tipo de Integración</th>
+                            <th>Beneficio</th>
+                        </tr>
+                        <tr>
+                            <td>CaseWare Working Papers</td>
+                            <td>Nativa</td>
+                            <td>Exportación directa de hallazgos y papeles de trabajo al software de documentación de auditoría.</td>
+                        </tr>
+                        <tr>
+                            <td>Python / R</td>
+                            <td>Conector</td>
+                            <td>Permite ejecutar scripts de Python o R directamente desde IDEA para análisis estadísticos y de machine learning avanzados.</td>
+                        </tr>
+                        <tr>
+                            <td>Tableau / Power BI</td>
+                            <td>Exportación / ODBC</td>
+                            <td>Exporta los resultados de IDEA para crear dashboards y visualizaciones interactivas avanzadas.</td>
+                        </tr>
+                        <tr>
+                            <td>IDEA Server</td>
+                            <td>Nativa</td>
+                            <td>Permite la colaboración en equipo, gestión centralizada de auditorías y análisis en bases de datos masivas a nivel de servidor.</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <section id="recursos" class="section">
+                <h2>📚 Recursos Adicionales y Comunidad</h2>
+                <div class="highlight-box">
+                    <h4>🌐 Portales Oficiales</h4>
+                    <ul>
+                        <li><a href="#">Sitio Web de CaseWare Analytics</a></li>
+                        <li><a href="#">Portal de Soporte de IDEA</a></li>
+                        <li><a href="#">Foros de la Comunidad de IDEA</a></li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <h4>🎓 Formación y Certificación</h4>
+                    <p>CaseWare ofrece la certificación <strong>CIDA (Certified IDEA Data Analyst)</strong>, que valida tus habilidades y conocimientos en el uso de IDEA. Es un gran diferenciador profesional.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Guía Completa de IDEA. Todos los derechos reservados.</p>
+            <p>Este sitio es un recurso no oficial creado con fines educativos.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
